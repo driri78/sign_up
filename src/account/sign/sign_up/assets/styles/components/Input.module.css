@@ -1,0 +1,21 @@
+input {
+  width: 85%;
+  padding-left: 2%;
+  padding-right: 20%;
+  font-size: 18px;
+
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+input#pw {
+  width: 70%;
+}
+input#addr {
+  width: 65%;
+  cursor: default;
+}
+input#pw,
+input#addr {
+  padding-right: 0;
+}
