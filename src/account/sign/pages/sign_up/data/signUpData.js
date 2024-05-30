@@ -11,6 +11,9 @@ const idValidation = (id) => {
   }
   return true;
 };
+const idDuplicate = (id) => {
+  // 중복검사
+};
 const pwValidation = (pw) => {
   const isPw =
     /^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])[^ㄱ-ㅎ^가-힣]{8,25}$/.exec(
@@ -56,63 +59,64 @@ const addrValidation = (addr) => {
   }
   return true;
 };
-const data = {
-  InputContainer01: [
-    {
-      tag_id: "id",
-      ko_name: "아이디",
-      type: "text",
-      icon: <FiUser />,
-      fcn: { validation: idValidation },
-      alert: "영문(소문자), 숫자 6 ~ 12자리로 작성해주세요.",
+const signUpData01 = [
+  {
+    tag_id: "id",
+    ko_name: "아이디",
+    type: "text",
+    icon: <FiUser />,
+    fcn: { validation: idValidation, duplicate: idDuplicate },
+    alert: {
+      one: "영문(소문자), 숫자 6 ~ 12자리로 작성해주세요.",
+      two: "사용할 수 없는 아이디 입니다.",
     },
-    {
-      tag_id: "pw",
-      classNameBtn: "pw_btn",
-      ko_name: "비밀번호",
-      type: "password",
-      icon: <IoLockClosedOutline />,
-      icon01: <FaRegEye />,
-      icon02: <FaRegEyeSlash color="#999" />,
-      fcn: { validation: pwValidation },
-      alert:
-        "영문(대소문자), 숫자, 특수문자 한자리이상 8 ~ 25자리로 작성해주세요.",
-    },
-  ],
-  InputContainer02: [
-    {
-      tag_id: "name",
-      ko_name: "이름",
-      type: "text",
-      icon: <FiUser />,
-      fcn: { validation: nameValidation },
-      alert: "한글, 영문(대/소문자)로 작성해주세요.",
-    },
-    {
-      tag_id: "addr",
-      ko_name: "주소",
-      type: "address",
-      readonly: true,
-      icon: <PiAddressBook />,
-      fcn: { validation: addrValidation },
-    },
-    {
-      tag_id: "phone",
-      ko_name: "휴대전화번호",
-      type: "text",
-      icon: <IoPhonePortraitOutline />,
-      max_length: "13",
-      fcn: { validation: phoneValidation, phoneFrmt: phoneFormat },
-      alert: "휴대전화번호가 정확한지 확인해주세요.",
-    },
-    {
-      tag_id: "email",
-      ko_name: "(선택)이메일",
-      type: "text",
-      icon: <MdOutlineEmail />,
-      fcn: {},
-    },
-  ],
-};
+  },
+  {
+    tag_id: "pw",
+    classNameBtn: "pw_btn",
+    ko_name: "비밀번호",
+    type: "password",
+    icon: <IoLockClosedOutline />,
+    icon01: <FaRegEye />,
+    icon02: <FaRegEyeSlash color="#999" />,
+    fcn: { validation: pwValidation },
+    alert:
+      "영문(대소문자), 숫자, 특수문자 한자리이상 8 ~ 25자리로 작성해주세요.",
+  },
+];
+const signUpData02 = [
+  {
+    tag_id: "name",
+    ko_name: "이름",
+    type: "text",
+    icon: <FiUser />,
+    fcn: { validation: nameValidation },
+    alert: "한글, 영문(대/소문자)로 작성해주세요.",
+  },
+  {
+    tag_id: "addr",
+    ko_name: "주소",
+    type: "address",
+    readonly: true,
+    icon: <PiAddressBook />,
+    fcn: { validation: addrValidation },
+  },
+  {
+    tag_id: "phone",
+    ko_name: "휴대전화번호",
+    type: "text",
+    icon: <IoPhonePortraitOutline />,
+    max_length: "13",
+    fcn: { validation: phoneValidation, phoneFrmt: phoneFormat },
+    alert: "휴대전화번호가 정확한지 확인해주세요.",
+  },
+  {
+    tag_id: "email",
+    ko_name: "(선택)이메일",
+    type: "text",
+    icon: <MdOutlineEmail />,
+    fcn: {},
+  },
+];
 
-export default data;
+export default { signUpData01, signUpData02 };

@@ -11,7 +11,7 @@ function Input({
   user,
 }) {
   const { addr } = user;
-  const [val, setVal] = useState("");
+  const [value, setValue] = useState("");
   return (
     <Fragment>
       <input
@@ -26,15 +26,15 @@ function Input({
         }}
         onBlur={(e) => {
           if (tag_id === "addr") return; // 주소 input red 테두리 x
-          dispatch({ type: tag_id, payload: val });
+          dispatch({ type: tag_id, payload: value });
           e.target.parentElement.classList.remove("focus");
           if (tag_id === "phone") {
             // 폰 input 하이픈 포멧
-            setVal(fcn.phoneFrmt(val));
+            setValue(fcn.phoneFrmt(value));
           }
         }}
-        onChange={(e) => setVal(e.target.value)}
-        value={(tag_id === "addr" ? addr : val) || ""} // 다음 api complete시 value값 넣기
+        onChange={(e) => setValue(e.target.value)}
+        value={(tag_id === "addr" ? addr?.val : value) || ""} // 다음 api complete시 value값 넣기
       />
     </Fragment>
   );

@@ -3,7 +3,7 @@ import React, { Suspense, lazy } from "react";
 
 const loding = <div>로딩중.......</div>;
 const SignUpPage = lazy(() =>
-  import("../account/sign/sign_up/pages/SignUpPage")
+  import("../account/sign/pages/sign_up/pages/SignUpPage")
 );
 
 const Root = createBrowserRouter([

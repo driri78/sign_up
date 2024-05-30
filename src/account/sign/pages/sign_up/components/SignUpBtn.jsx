@@ -1,9 +1,8 @@
 import React from "react";
 import style from "../assets/styles/components/SignUpBtn.module.css";
-function SignUpBtn({ user, dispatch, idPwValidation, userInfoValidation }) {
+function SignUpBtn({ user, dispatch }) {
   const { id, pw, name, addr, phone, email } = user;
-  const [idValidation, pwValidation] = idPwValidation;
-  const [nameValidation, addrValidation, phoneValidation] = userInfoValidation;
+
   const initDispatch = () => {
     if (id === undefined) dispatch({ type: "id", payload: "" });
     if (pw === undefined) dispatch({ type: "pw", payload: "" });
@@ -14,11 +13,11 @@ function SignUpBtn({ user, dispatch, idPwValidation, userInfoValidation }) {
   };
   const submitValidation = () => {
     initDispatch();
-    if (!idValidation(id)) return false;
-    if (!pwValidation(pw)) return false;
-    if (!nameValidation(name)) return false;
-    if (!addrValidation(addr)) return false;
-    if (!phoneValidation(phone)) return false;
+    if (!id?.checked) return false;
+    if (!pw?.checked) return false;
+    if (!name?.checked) return false;
+    if (!addr?.checked) return false;
+    if (!phone?.checked) return false;
     return true;
   };
   const submit = () => {

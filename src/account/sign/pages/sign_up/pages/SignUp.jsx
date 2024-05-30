@@ -1,37 +1,62 @@
 import React, { useReducer, useState } from "react";
-import data from "../data/inputConteainerData";
-import SignBox from "../frame/SignBox";
-import InputContainer from "../frame/InputContainer";
-import InputItem from "../frame/InputItem";
+import data from "../data/signUpData";
+import SignBox from "../../../frame/SignBox";
+import InputContainer from "../../../frame/InputContainer";
+import InputItem from "../../../frame/InputItem";
+import Label from "../../../components/Label";
+import Input from "../../../components/Input";
+import PwBtn from "../../../components/PwBtn";
+import SubMenuBtn from "../../../components/SubMenuBtn";
 import AlertBox from "../frame/AlertBox";
-import Label from "../components/Label";
-import Input from "../components/Input";
-import PwBtn from "../components/PwBtn";
 import AddrBtn from "../components/AddrBtn";
 import Alert from "../components/Alert";
 import SignUpBtn from "../components/SignUpBtn";
-import SubMenuBtn from "../components/SubMenuBtn";
 
+const { signUpData01, signUpData02 } = data;
+
+const [idValidation, pwValidation] = signUpData01.map((item) => {
+  return item.fcn.validation;
+});
+const [nameValidation, addrValidation, phoneValidation] = signUpData02.map(
+  (item) => {
+    return item.fcn.validation;
+  }
+);
 const reducer = (state, action) => {
   switch (action.type) {
     case "id":
-      let id = action.payload;
-      return { ...state, id };
+      return {
+        ...state,
+        id: { val: action.payload, checked: idValidation(action.payload) },
+      };
     case "pw":
-      let pw = action.payload;
-      return { ...state, pw };
+      return {
+        ...state,
+        pw: { val: action.payload, checked: pwValidation(action.payload) },
+      };
     case "name":
-      let name = action.payload;
-      return { ...state, name };
+      return {
+        ...state,
+        name: { val: action.payload, checked: nameValidation(action.payload) },
+      };
     case "addr":
-      let addr = action.payload;
-      return { ...state, addr };
+      return {
+        ...state,
+        addr: { val: action.payload, checked: addrValidation(action.payload) },
+      };
     case "phone":
-      let phone = action.payload;
-      return { ...state, phone };
+      return {
+        ...state,
+        phone: {
+          val: action.payload,
+          checked: phoneValidation(action.payload),
+        },
+      };
     case "email":
-      let email = action.payload;
-      return { ...state, email };
+      return {
+        ...state,
+        email: { val: action.payload, checked: true },
+      };
     default:
       return state;
   }
@@ -40,16 +65,12 @@ const reducer = (state, action) => {
 function SignUp(props) {
   const [pwShow, setPwShow] = useState(false);
   const [user, dispatch] = useReducer(reducer, {});
+  console.log(user);
   return (
     <SignBox>
       <InputContainer>
-        {data.InputContainer01.map((item, index) => (
-          <InputItem
-            key={index}
-            tag_id={item.tag_id}
-            user={user}
-            fcn={item.fcn}
-          >
+        {signUpData01.map((item, index) => (
+          <InputItem key={index} tag_id={item.tag_id} user={user}>
             <Label tag_id={item.tag_id}>{item.icon}</Label>
             <Input
               tag_id={item.tag_id}
@@ -77,26 +98,20 @@ function SignUp(props) {
           </InputItem>
         ))}
         <AlertBox>
-          {data.InputContainer01.map((item, index) => (
+          {signUpData01.map((item, index) => (
             <Alert
               key={index}
               tag_id={item.tag_id}
               ko_name={item.ko_name}
               alert={item.alert}
-              fcn={item.fcn}
               user={user}
             />
           ))}
         </AlertBox>
       </InputContainer>
       <InputContainer>
-        {data.InputContainer02.map((item, index) => (
-          <InputItem
-            key={index}
-            tag_id={item.tag_id}
-            fcn={item.fcn}
-            user={user}
-          >
+        {signUpData02.map((item, index) => (
+          <InputItem key={index} tag_id={item.tag_id} user={user}>
             <Label tag_id={item.tag_id}>{item.icon}</Label>
             <Input
               tag_id={item.tag_id}
@@ -112,28 +127,18 @@ function SignUp(props) {
           </InputItem>
         ))}
         <AlertBox>
-          {data.InputContainer02.map((item, index) => (
+          {signUpData02.map((item, index) => (
             <Alert
               key={index}
               tag_id={item.tag_id}
               ko_name={item.ko_name}
               alert={item.alert}
-              fcn={item.fcn}
               user={user}
             />
           ))}
         </AlertBox>
       </InputContainer>
-      <SignUpBtn
-        user={user}
-        dispatch={dispatch}
-        idPwValidation={data.InputContainer01.map((item) => {
-          return item.fcn.validation;
-        })}
-        userInfoValidation={data.InputContainer02.map((item) => {
-          return item.fcn.validation;
-        })}
-      />
+      <SignUpBtn user={user} dispatch={dispatch} />
       <SubMenuBtn />
     </SignBox>
   );
