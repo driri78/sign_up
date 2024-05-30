@@ -1,0 +1,10 @@
+.input_container {
+  width: 100%;
+  margin-bottom: 30px;
+  padding: 30px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+
+  display: flex;
+  flex-direction: column;
+}

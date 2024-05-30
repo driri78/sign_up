@@ -1,0 +1,6 @@
+.focus {
+  border: 2px solid #89e2ff !important;
+}
+.validation {
+  border: 2px solid red;
+}
