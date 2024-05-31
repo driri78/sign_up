@@ -1,0 +1,144 @@
+@media screen and (max-width: 400px) {
+  .sign_box input {
+    font-size: 16px;
+  }
+  .sign_box .sign_btn button {
+    font-size: 20px;
+  }
+  .sign_box .alert_box span {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 350px) {
+  .sign_box input {
+    font-size: 14px;
+  }
+  .sign_box .sign_btn button {
+    font-size: 18px;
+  }
+  .sign_box .alert_box span {
+    font-size: 10px;
+  }
+}
+@media screen and (max-width: 300px) {
+  .sign_box input {
+    font-size: 12px;
+  }
+  .sign_box .sign_btn button {
+    font-size: 16px;
+  }
+  .sign_box .alert_box span {
+    font-size: 8px;
+  }
+}
+
+.sign_box {
+  max-width: 500px;
+  padding: 0 30px;
+  margin: 0 auto;
+}
+.input_container {
+  width: 100%;
+  margin-bottom: 30px;
+  padding: 30px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.input_item {
+  width: 100%;
+  height: 45px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+
+  display: flex;
+}
+
+.input_item.focus {
+  border: 2px solid #89e2ff !important;
+}
+.input_item.validation {
+  border: 2px solid red;
+}
+
+.input_label {
+  display: block;
+  width: 15%;
+  height: 100%;
+
+  text-align: center;
+}
+
+.input_label svg {
+  width: 50%;
+  height: 100%;
+}
+input {
+  width: 85%;
+  padding-left: 2%;
+  padding-right: 20%;
+
+  font-size: 18px;
+
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.pw_input {
+  width: 70%;
+}
+.addr_input {
+  width: 65%;
+  cursor: default;
+}
+.pw_input,
+.addr_input {
+  padding-right: 0;
+}
+
+.pw_btn {
+  width: 15%;
+  height: 100%;
+}
+.pw_btn button {
+  width: 100%;
+  height: 100%;
+
+  border: none;
+  outline: none;
+  background-color: white;
+
+  cursor: pointer;
+}
+.pw_btn svg {
+  width: 30%;
+  height: 100%;
+}
+
+.alert_box span {
+  display: block;
+  font-size: 14px;
+  color: red;
+  padding: 2px;
+}
+.sign_btn {
+  width: 100%;
+  height: 50px;
+  margin: 10px auto;
+}
+.sign_btn button {
+  width: 100%;
+  height: 100%;
+  background-color: #89e2ff;
+
+  font-size: 22px;
+  font-weight: bold;
+  color: white;
+
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
