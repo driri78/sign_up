@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import React, { Suspense, lazy } from "react";
-import Loding from "../pages/loding/Loding";
+import Loading from "../pages/loading/Loading";
 
 const HomePage = lazy(() => import("../pages/home/HomePage"));
 const SignUpPage = lazy(() =>
@@ -16,7 +16,7 @@ const Root = createBrowserRouter([
       {
         path: "",
         element: (
-          <Suspense fallback={<Loding />}>
+          <Suspense fallback={<Loading />}>
             <HomePage />
           </Suspense>
         ),
@@ -27,7 +27,7 @@ const Root = createBrowserRouter([
           {
             path: "sign-up",
             element: (
-              <Suspense fallback={<Loding />}>
+              <Suspense fallback={<Loading />}>
                 <SignUpPage />
               </Suspense>
             ),
@@ -35,18 +35,18 @@ const Root = createBrowserRouter([
           {
             path: "sign-in",
             element: (
-              <Suspense fallback={<Loding />}>
+              <Suspense fallback={<Loading />}>
                 <SignInPage />
               </Suspense>
             ),
           },
           {
             path: "search_id",
-            element: <Suspense fallback={<Loding />}></Suspense>,
+            element: <Suspense fallback={<Loading />}></Suspense>,
           },
           {
             path: "search_pw",
-            element: <Suspense fallback={<Loding />}></Suspense>,
+            element: <Suspense fallback={<Loading />}></Suspense>,
           },
         ],
       },

@@ -1,6 +1,6 @@
 import React from "react";
-import "../../assets/styles/loding/Loding.css";
-function Loding(props) {
+import "../../assets/styles/loading/Loading.css";
+function Loading(props) {
   return (
     <div className="container">
       <div className="box1"></div>
@@ -9,4 +9,4 @@ function Loding(props) {
   );
 }
 
-export default Loding;
+export default Loading;

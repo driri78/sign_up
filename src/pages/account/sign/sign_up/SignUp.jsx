@@ -18,8 +18,9 @@ const reducer = (state, action) => {
   switch (action.type) {
     case "id":
       let checked = idValidation(action.payload);
-      let dupChecked =
-        checked && InputContainerData01[0].fcn.duplicate(action.payload);
+      let dupChecked = checked
+        ? InputContainerData01[0].fcn.duplicate(action.payload)
+        : false;
       return {
         ...state,
         id: {
