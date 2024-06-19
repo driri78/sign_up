@@ -1,0 +1,7 @@
+.search_item {
+  width: 100%;
+  margin: 0 auto;
+}
+.search_item .input_container {
+  border-radius: 0;
+}

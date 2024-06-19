@@ -6,11 +6,11 @@ const mainMenu = [
 
 const loginMenu = [
   {
-    link: "/account/search/id",
+    link: "/account/search_id",
     word: "아이디 찾기",
   },
   {
-    link: "/account/search/pw",
+    link: "/account/search_pw",
     word: "비밀번호 찾기",
   },
   {

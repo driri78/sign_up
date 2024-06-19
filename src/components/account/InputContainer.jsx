@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import InputItem from "./InputItem";
-import PwBtn from "./PwBtn";
-import AddrBtn from "./sign_up/AddrBtn";
+import PwBtn from "./sign/PwBtn";
+import AddrBtn from "./sign/sign_up/AddrBtn";
+import "../../assets/styles/account/InputContainer.css";
 function InputContainer({ children, data, user, dispatch }) {
   const [pwShow, setPwShow] = useState(false);
   return (

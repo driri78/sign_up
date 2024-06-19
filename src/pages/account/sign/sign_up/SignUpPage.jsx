@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import SignUp from "./SignUp";
+import SignUp from "../../../../components/account/sign/sign_up/SignUp";
 import Logo from "../../../../components/all/Logo";
 
 function SignUpPage(props) {

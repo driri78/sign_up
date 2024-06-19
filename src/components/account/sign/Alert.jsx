@@ -25,12 +25,17 @@ function Alert({ tag_id, ko_name, alert, user, isLogin }) {
       }
     } else {
       // sign-in alert처리
-      if (isLogin !== null && !isLogin)
+      if (user.id?.trim().length === 0) {
+        return <span>아이디를 입력해주세요</span>;
+      } else if (user.pw?.trim().length === 0) {
+        return <span>비밀번호를 입력해주세요</span>;
+      } else if (isLogin !== null && !isLogin) {
         return <span>아이디 또는 비밀번호를 확인해주세요.</span>;
+      }
     }
     return false;
   };
-  return <Fragment>{printAlert()}</Fragment>;
+  return <div className="alert_box">{printAlert()}</div>;
 }
 
 export default Alert;

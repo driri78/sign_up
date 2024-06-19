@@ -7,7 +7,9 @@ function AddrBtn({ dispatch }) {
   return (
     <div className={style.addr_btn}>
       {onAddr && <AddrContent setOnAddr={setOnAddr} dispatch={dispatch} />}
-      <button onClick={(e) => setOnAddr(true)}>주소찾기</button>
+      <button type="button" onClick={(e) => setOnAddr(true)}>
+        주소찾기
+      </button>
     </div>
   );
 }

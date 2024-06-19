@@ -1,0 +1,9 @@
+.search_btn {
+  height: 40px;
+}
+
+.search_btn button {
+  width: 100%;
+  height: 100%;
+  border: none;
+}

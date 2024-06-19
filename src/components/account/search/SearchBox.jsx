@@ -1,10 +1,17 @@
 import React from "react";
-import SearchAccountNav from "./SearchAccountNav";
-
-function SearchBox(props) {
+import SearchNav from "./SearchNav";
+import SearchContainer from "./SearchContainer";
+import "../../../assets/styles/account/search/SearchBox.css";
+import { SearchContextProvider } from "../../../context/account/SearchContext";
+function SearchBox({ children, word }) {
   return (
-    <div>
-      <SearchAccountNav />
+    <div className="search_box">
+      <SearchContextProvider>
+        <SearchNav word={word} />
+        <SearchContainer word={word} />
+      </SearchContextProvider>
+
+      {children}
     </div>
   );
 }

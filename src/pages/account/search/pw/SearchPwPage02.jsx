@@ -1,8 +1,8 @@
-import React, { Fragment } from "react";
-import SignIn from "../../../../components/account/sign/sign_in/SignIn";
+import React from "react";
+import SearchPw02 from "../../../../components/account/search/pw/SearchPw02";
 import Logo from "../../../../components/all/Logo";
 
-function SignInPage(props) {
+function SearchPwPage(props) {
   return (
     <div
       style={{
@@ -12,9 +12,9 @@ function SignInPage(props) {
       }}
     >
       <Logo />
-      <SignIn />
+      <SearchPw02 />
     </div>
   );
 }
 
-export default SignInPage;
+export default SearchPwPage;

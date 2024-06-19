@@ -9,6 +9,15 @@ const SignUpPage = lazy(() =>
 const SignInPage = lazy(() =>
   import("../pages/account/sign/sign_in/SignInPage")
 );
+const SearchIdPage = lazy(() =>
+  import("../pages/account/search/id/SearchIdPage")
+);
+const SearchPwPage01 = lazy(() =>
+  import("../pages/account/search/pw/SearchPwPage01")
+);
+const SearchPwPage02 = lazy(() =>
+  import("../pages/account/search/pw/SearchPwPage02")
+);
 const Root = createBrowserRouter([
   {
     path: "/",
@@ -42,11 +51,27 @@ const Root = createBrowserRouter([
           },
           {
             path: "search_id",
-            element: <Suspense fallback={<Loading />}></Suspense>,
+            element: (
+              <Suspense fallback={<Loading />}>
+                <SearchIdPage />
+              </Suspense>
+            ),
           },
           {
             path: "search_pw",
-            element: <Suspense fallback={<Loading />}></Suspense>,
+            element: (
+              <Suspense fallback={<Loading />}>
+                <SearchPwPage01 />
+              </Suspense>
+            ),
+          },
+          {
+            path: "search_pw/:id",
+            element: (
+              <Suspense fallback={<Loading />}>
+                <SearchPwPage02 />
+              </Suspense>
+            ),
           },
         ],
       },

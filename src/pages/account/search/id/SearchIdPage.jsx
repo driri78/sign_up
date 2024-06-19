@@ -1,8 +1,7 @@
 import React, { Fragment } from "react";
-import SignIn from "../../../../components/account/sign/sign_in/SignIn";
+import SearchId from "../../../../components/account/search/id/SearchId";
 import Logo from "../../../../components/all/Logo";
-
-function SignInPage(props) {
+function SearchIdPage(props) {
   return (
     <div
       style={{
@@ -12,9 +11,9 @@ function SignInPage(props) {
       }}
     >
       <Logo />
-      <SignIn />
+      <SearchId />
     </div>
   );
 }
 
-export default SignInPage;
+export default SearchIdPage;

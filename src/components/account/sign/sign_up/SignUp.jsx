@@ -1,25 +1,29 @@
 import React, { useReducer } from "react";
 import {
-  InputContainerData01,
-  InputContainerData02,
+  signData01,
+  signData02,
   signUpSubBtnData,
-} from "../../../../data/signData";
-import SignBox from "../../../../components/account/sign/SignBox";
-import SubSignBox from "../../../../components/account/sign/SubSignBox";
+} from "../../../../data/accountData";
+import SignUpBtn from "./SignUpBtn";
+import InputContainer from "../../InputContainer";
+import SignUpAlert from "./SignUpAlert";
+import SubBtnBox from "../../SubBtnBox";
+import "../../../../assets/styles/account/sign/Sign.css";
 
-const [idValidation, pwValidation] = InputContainerData01.map((item) => {
+const [idValidation, pwValidation] = signData01.map((item) => {
   return item.fcn.validation;
 });
-const [nameValidation, addrValidation, phoneValidation] =
-  InputContainerData02.map((item) => {
+const [nameValidation, addrValidation, phoneValidation] = signData02.map(
+  (item) => {
     return item.fcn.validation;
-  });
+  }
+);
 const reducer = (state, action) => {
   switch (action.type) {
     case "id":
       let checked = idValidation(action.payload);
       let dupChecked = checked
-        ? InputContainerData01[0].fcn.duplicate(action.payload)
+        ? signData01[0].fcn.duplicate(action.payload)
         : false;
       return {
         ...state,
@@ -64,11 +68,32 @@ const reducer = (state, action) => {
 
 function SignUp(props) {
   const [user, dispatch] = useReducer(reducer, {});
-  const data = [InputContainerData01, InputContainerData02];
+  const data = [signData01, signData02];
+  const data02 = signUpSubBtnData;
   return (
-    <SignBox data={data} user={user} dispatch={dispatch} word={"회원가입"}>
-      <SubSignBox data={signUpSubBtnData} />
-    </SignBox>
+    <div className="sign_box">
+      {data.map((InputContainerData, index) => (
+        <InputContainer
+          key={index}
+          data={InputContainerData}
+          user={user}
+          dispatch={dispatch}
+        >
+          {InputContainerData.map((InputItemData) => (
+            <SignUpAlert
+              key={InputItemData.tag_id}
+              data={InputItemData}
+              user={user}
+            />
+          ))}
+
+          {index === data.length - 1 && (
+            <SignUpBtn user={user} dispatch={dispatch} word={"회원가입"} />
+          )}
+        </InputContainer>
+      ))}
+      <SubBtnBox data={data02} user={user} />
+    </div>
   );
 }
 

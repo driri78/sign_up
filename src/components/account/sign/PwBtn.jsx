@@ -3,7 +3,9 @@ function PwBtn({ icon01, icon02, className, pwShow, setPwShow }) {
   return (
     <div className={className}>
       <button
+        type="button"
         onClick={(e) => {
+          e.preventDefault();
           setPwShow(!pwShow);
         }}
       >
